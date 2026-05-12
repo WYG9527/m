@@ -1,0 +1,76 @@
+# 个性化教育辅导Agent系统
+
+基于多Agent协作的智能教育辅导系统，实现个性化学习诊断、计划制定、资源推荐、答疑解惑和进度追踪。
+
+## 功能特性
+
+- **学习诊断Agent** - 评估学生知识水平，识别薄弱点
+- **学习计划Agent** - 根据诊断结果制定个性化学习路径
+- **内容推荐Agent** - 推荐适配的学习资源和练习题
+- **答疑解惑Agent** - 解答学生问题，支持多轮对话
+- **进度追踪Agent** - 跟踪学习进度，生成学习报告
+
+## 项目结构
+
+```
+agents/              # Agent实现
+├── learning_diagnosis_agent.py
+├── learning_plan_agent.py
+├── content_recommendation_agent.py
+├── qa_agent.py
+└── progress_tracking_agent.py
+
+models/              # 数据模型
+├── student.py
+└── learning.py
+
+utils/               # 工具函数
+├── database.py
+├── llm_client.py
+└── logger.py
+
+data/                # 数据存储
+config.py            # 配置管理
+learning_coordinator.py  # 系统协调器
+main.py              # 命令行入口
+run_workflow_demo.py # 工作流演示
+```
+
+## 快速开始
+
+```bash
+pip install -r requirements.txt
+```
+
+配置API Key：
+```bash
+cp .env.example .env
+# 编辑.env文件，填入OPENAI_API_KEY
+```
+
+运行演示：
+```bash
+python run_workflow_demo.py
+```
+
+命令行交互：
+```bash
+python main.py
+```
+
+## 配置说明
+
+在`.env`文件中配置：
+
+```
+OPENAI_API_KEY=your-api-key-here
+MODEL_NAME=gpt-4
+TEMPERATURE=0.7
+DEBUG=false
+```
+
+## Agent工作流
+
+```
+注册学生 → 学习诊断 → 创建学习计划 → 推荐资源 → 答疑解惑 → 更新进度 → 生成报告
+```
